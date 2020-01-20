@@ -87,6 +87,7 @@ Vagrant.configure("2") do |config|
      apt-get -qy install ctags
      apt-get -qy install gitk
      apt-get -qy install bats
+     apt-get -qy install qemu-system-x86
      apt-get -qy install fuse libfuse-dev
      echo 'PATH="$PATH:$HOME/.local/bin"' >> /etc/profile
      update-alternatives --set editor /usr/bin/vim.nox
