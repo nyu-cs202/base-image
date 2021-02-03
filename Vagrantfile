@@ -79,7 +79,8 @@ Vagrant.configure("2") do |config|
      export DEBIAN_FRONTEND=noninteractive
      export APT_LISTCHANGES_FRONTEND=none
      apt-get -qy update
-     apt-get -qy dist-upgrade
+#    suppress upgrades since the grub upgrade breaks this configuration
+#     apt-get -qy dist-upgrade 
      apt-get -qy install build-essential git curl vim-nox tmux info clang-format
      apt-get -qy install manpages manpages-dev manpages-posix manpages-posix-dev
      apt-get -qy install freebsd-manpages perf-tools-unstable
