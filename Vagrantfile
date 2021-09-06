@@ -94,5 +94,6 @@ Vagrant.configure("2") do |config|
      apt-get -qy install xauth
      echo 'PATH="$PATH:$HOME/.local/bin"' >> /etc/profile
      update-alternatives --set editor /usr/bin/vim.nox
+     sudo mandb
    SHELL
 end
