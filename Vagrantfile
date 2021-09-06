@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "debian/buster64"
+  config.vm.box = "debian/bullseye64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -70,10 +70,10 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
      # Install things
-     echo deb http://deb.debian.org/debian buster main contrib non-free > /etc/apt/sources.list
-     echo deb-src http://deb.debian.org/debian buster main contrib non-free >> /etc/apt/sources.list
-     echo deb http://security.debian.org/debian-security buster/updates main contrib non-free >> /etc/apt/sources.list
-     echo deb-src http://security.debian.org/debian-security buster/updates main contrib non-free >> /etc/apt/sources.list
+     echo deb http://deb.debian.org/debian bullseye main contrib non-free > /etc/apt/sources.list
+     echo deb-src http://deb.debian.org/debian bullseye main contrib non-free >> /etc/apt/sources.list
+     echo deb http://security.debian.org/debian-security bullseye-updates main contrib non-free >> /etc/apt/sources.list
+     echo deb-src http://security.debian.org/debian-security bullseye-updates main contrib non-free >> /etc/apt/sources.list
      echo force-confdef >> /etc/dpkg/dpkg.cfg
      echo force-confnew >> /etc/dpkg/dpkg.cfg
      export DEBIAN_FRONTEND=noninteractive
@@ -85,11 +85,12 @@ Vagrant.configure("2") do |config|
      apt-get -qy install manpages manpages-dev manpages-posix manpages-posix-dev
      apt-get -qy install freebsd-manpages perf-tools-unstable
      apt-get -qy install gdb strace htop make automake autoconf pkg-config
-     apt-get -qy install ctags
+     apt-get -qy install exuberant-ctags
      apt-get -qy install gitk
      apt-get -qy install bats
      apt-get -qy install qemu-system-x86
      apt-get -qy install fuse libfuse-dev
+     apt-get -qy install python2
      echo 'PATH="$PATH:$HOME/.local/bin"' >> /etc/profile
      update-alternatives --set editor /usr/bin/vim.nox
    SHELL
