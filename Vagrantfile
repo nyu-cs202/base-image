@@ -91,6 +91,7 @@ Vagrant.configure("2") do |config|
      apt-get -qy install qemu-system-x86
      apt-get -qy install fuse libfuse-dev
      apt-get -qy install python2
+     apt-get -qy install xauth
      echo 'PATH="$PATH:$HOME/.local/bin"' >> /etc/profile
      update-alternatives --set editor /usr/bin/vim.nox
    SHELL
